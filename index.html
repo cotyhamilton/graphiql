@@ -95,16 +95,8 @@
           headers,
           body: JSON.stringify(graphQLParams),
         })
-          .then(function (response) {
-            return response.text();
-          })
-          .then(function (responseBody) {
-            try {
-              return JSON.parse(responseBody);
-            } catch (error) {
-              return responseBody;
-            }
-          });
+          .then((response) => response.json())
+          .catch(console.error);
       }
 
       ReactDOM.render(
